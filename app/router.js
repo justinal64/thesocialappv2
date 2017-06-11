@@ -6,6 +6,8 @@ import SignUp from "./screens/SignUp";
 import SignIn from "./screens/SignIn";
 import Home from "./screens/Home";
 import Profile from "./screens/Profile";
+import Notes from "./screens/Notes";
+import Users from "./screens/Users";
 
 export const SignedOut = StackNavigator({
   SignUp: {
@@ -27,18 +29,32 @@ export const SignedIn = TabNavigator({
     screen: Home,
     navigationOptions: {
       tabBarLabel: "Home",
-      tabBarIcon: ({ tintColor }) => (
+      tabBarIcon: ({ tintColor }) =>
         <FontAwesome name="home" size={30} color={tintColor} />
-      )
+    }
+  },
+  Users: {
+    screen: Users,
+    navigationOptions: {
+      tabBarLabel: "Users",
+      tabBarIcon: ({ tintColor }) =>
+        <FontAwesome name="user" size={30} color={tintColor} />
+    }
+  },
+  Notes: {
+    screen: Notes,
+    navigationOptions: {
+      tabBarLabel: "Notes",
+      tabBarIcon: ({ tintColor }) =>
+        <FontAwesome name="user" size={30} color={tintColor} />
     }
   },
   Profile: {
     screen: Profile,
     navigationOptions: {
       tabBarLabel: "Profile",
-      tabBarIcon: ({ tintColor }) => (
+      tabBarIcon: ({ tintColor }) =>
         <FontAwesome name="user" size={30} color={tintColor} />
-      )
     }
   }
 });
