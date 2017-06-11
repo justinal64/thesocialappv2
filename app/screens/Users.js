@@ -2,49 +2,19 @@ import React from "react";
 import { ScrollView, Linking, View, Header } from "react-native";
 import { Card, Button, Text } from "react-native-elements";
 import PageHeader from "../components/Header";
+import axios from "axios";
 
-const images = [
-  {
-    key: 1,
-    name: "Nathan Anderson",
-    image: require("../images/1.jpg"),
-    url: "https://unsplash.com/photos/C9t94JC4_L8"
-  },
-  {
-    key: 2,
-    name: "Jamison McAndie",
-    image: require("../images/2.jpg"),
-    url: "https://unsplash.com/photos/waZEHLRP98s"
-  },
-  {
-    key: 3,
-    name: "Alberto Restifo",
-    image: require("../images/3.jpg"),
-    url: "https://unsplash.com/photos/cFplR9ZGnAk"
-  },
-  {
-    key: 4,
-    name: "John Towner",
-    image: require("../images/4.jpg"),
-    url: "https://unsplash.com/photos/89PFnHKg8HE"
-  }
-];
+const data = () => {
+  axios.get(`http://localhost:5000/api/request`).then(res => {
+    // this.setState({ userData: res.data });
+    console.log("res.data= ", res.data);
+  });
+};
 
 export default () =>
   <View style={{ flex: 1 }}>
+    {data()}
     <ScrollView contentContainerStyle={{ paddingVertical: 20 }}>
-      <Text h4>Users</Text>
-      {images.map(({ name, image, url, key }) =>
-        <Card title={`CARD ${key}`} image={image} key={key}>
-          <Text style={{ marginBottom: 10 }}>
-            Photo by {name}.
-          </Text>
-          <Button
-            backgroundColor="#03A9F4"
-            title="VIEW NOW"
-            onPress={() => Linking.openURL(url)}
-          />
-        </Card>
-      )}
+      <Text h4>Users Page</Text>
     </ScrollView>
   </View>;

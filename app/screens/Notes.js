@@ -1,6 +1,7 @@
 import React from "react";
-import { ScrollView, Text, Linking, View } from "react-native";
-import { Card, Button } from "react-native-elements";
+import { ScrollView, Linking, View, Header } from "react-native";
+import { Card, Button, Text } from "react-native-elements";
+import PageHeader from "../components/Header";
 
 const images = [
   {
@@ -32,6 +33,7 @@ const images = [
 export default () =>
   <View style={{ flex: 1 }}>
     <ScrollView contentContainerStyle={{ paddingVertical: 20 }}>
+      <Text h4>Notes Page</Text>
       {images.map(({ name, image, url, key }) =>
         <Card title={`CARD ${key}`} image={image} key={key}>
           <Text style={{ marginBottom: 10 }}>

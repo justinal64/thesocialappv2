@@ -41,6 +41,14 @@ export const SignedIn = TabNavigator({
         <FontAwesome name="user" size={30} color={tintColor} />
     }
   },
+  Notes: {
+    screen: Notes,
+    navigationOptions: {
+      tabBarLabel: "Notes",
+      tabBarIcon: ({ tintColor }) =>
+        <FontAwesome name="user" size={30} color={tintColor} />
+    }
+  },
   Profile: {
     screen: Profile,
     navigationOptions: {
