@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { Card, Button, FormLabel, FormInput } from "react-native-elements";
 import { onSignIn } from "../auth";
 
-export default ({ navigation }) => (
+export default ({ navigation }) =>
   <View style={{ paddingVertical: 20 }}>
     <Card>
       <FormLabel>Email</FormLabel>
@@ -20,5 +20,13 @@ export default ({ navigation }) => (
         }}
       />
     </Card>
-  </View>
-);
+  </View>;
+
+// <View>
+//   <Tile
+//     imageSrc={{ require: zoey }}
+//     title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores dolore exercitationem"
+//     featured
+//     caption="Some Caption Text"
+//   />
+// </View>
