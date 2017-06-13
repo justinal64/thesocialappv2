@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { View } from "react-native";
 import { Card, Button, FormLabel, FormInput } from "react-native-elements";
 import { onSignIn } from "../auth";
@@ -16,7 +16,6 @@ export default ({ navigation }) =>
         backgroundColor="#03A9F4"
         title="SIGN IN"
         onPress={() => {
-          console.log(post);
           onSignIn().then(() => navigation.navigate("SignedIn"));
         }}
       />

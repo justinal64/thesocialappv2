@@ -32,10 +32,12 @@ export default class App extends Component {
   // public string Password { get; set; }
   postToDb = () => {
     console.log("test");
-    // Or use the callback interface if you prefer.
-    // UUIDGenerator.getRandomUUID((uuid) => {
-    //   this.setState({ uuid });
-    // });
+    // axios
+    //   .post(`http://localhost:5000/api/request`, { body }, "{auth header}")
+    //   .then(res => {
+    //     this.setState({ userData: res.data });
+    //     console.log("this.state.userData = ", this.state.userData);
+    //   });
   };
 
   render() {
@@ -70,5 +72,3 @@ export default class App extends Component {
     );
   }
 }
-
-// {this.state.userData.map((user, key) => )}
