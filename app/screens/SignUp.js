@@ -68,6 +68,9 @@ export default class App extends Component {
   }
 }
 
+// TO DO
+// 1. OnLoseFocus to validate password.cpassword
+
 // <View>
 //   <Tile
 //     imageSrc={{ require: zoey }}
