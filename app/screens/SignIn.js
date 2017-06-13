@@ -16,6 +16,7 @@ export default ({ navigation }) =>
         backgroundColor="#03A9F4"
         title="SIGN IN"
         onPress={() => {
+          console.log(post);
           onSignIn().then(() => navigation.navigate("SignedIn"));
         }}
       />
