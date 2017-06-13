@@ -1,7 +1,13 @@
 import React, { Component } from "react";
-import { Text, View, TextInput } from "react-native";
-import { Card, ListItem, Button, Badge, Avatar } from "react-native-elements";
-import PageHeader from "../components/Header";
+import { View, TextInput, ScrollView } from "react-native";
+import {
+  Card,
+  ListItem,
+  Button,
+  Badge,
+  Avatar,
+  Text
+} from "react-native-elements";
 import axios from "axios";
 
 export default class App extends Component {
@@ -19,18 +25,26 @@ export default class App extends Component {
     });
   }
 
+  //   public string dbid {get; set;}
+  //   public string Company { get; set; }
+  //   public string Posts { get; set; }
+  // public string Username { get; set; }
+  // public string Password { get; set; }
   postToDb = () => {
-    axios.post(`http://localhost:5000/api/request`).then(res => {
-      this.setState({ userData: res.data });
-      console.log("this.state.userData = ", this.state.userData);
-    });
+    console.log("test");
+    // Or use the callback interface if you prefer.
+    // UUIDGenerator.getRandomUUID((uuid) => {
+    //   this.setState({ uuid });
+    // });
   };
+
   render() {
     if (this.state.userData === null) return null;
     // const { navigate } = this.props.navigation;
     return (
-      <View>
+      <ScrollView style={{ flex: 1, paddingVertical: 20 }}>
         <View>
+          <Text h4>Home Page</Text>
           <TextInput
             style={{ height: 40 }}
             placeholder="New Post...."
@@ -52,7 +66,7 @@ export default class App extends Component {
             {/*<Badge value={3} textStyle={{ color: "orange" }} />*/}
           </Card>
         )}
-      </View>
+      </ScrollView>
     );
   }
 }

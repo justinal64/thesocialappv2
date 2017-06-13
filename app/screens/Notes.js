@@ -1,7 +1,6 @@
 import React from "react";
-import { ScrollView, Linking, View, Header } from "react-native";
+import { ScrollView, Linking, View } from "react-native";
 import { Card, Button, Text } from "react-native-elements";
-import PageHeader from "../components/Header";
 
 const images = [
   {

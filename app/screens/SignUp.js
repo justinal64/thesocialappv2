@@ -7,7 +7,10 @@ export default ({ navigation }) =>
   <View style={{ paddingVertical: 20 }}>
     <Card>
       <FormLabel>Email</FormLabel>
-      <FormInput placeholder="Email address..." />
+      <FormInput
+        placeholder="Email address..."
+        onChangeText={email => this.setState({ email })}
+      />
       <FormLabel>Password</FormLabel>
       <FormInput secureTextEntry placeholder="Password..." />
       <FormLabel>Confirm Password</FormLabel>
@@ -18,6 +21,7 @@ export default ({ navigation }) =>
         backgroundColor="#03A9F4"
         title="SIGN UP"
         onPress={() => {
+          console.log(email);
           onSignIn().then(() => navigation.navigate("SignedIn"));
         }}
       />
