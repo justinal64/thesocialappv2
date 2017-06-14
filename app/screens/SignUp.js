@@ -1,22 +1,32 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 import { Card, Button, FormLabel, FormInput } from "react-native-elements";
-import { onSignIn, auth } from "../auth";
+import { onSignIn, auth, registerUser } from "../auth";
+import axios from "axios";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      username: "",
       password: "",
       cpassword: ""
     };
   }
-
-  login = () => {
-    console.log("this.state.email = ", this.state.email);
-    console.log("this.state.password = ", this.state.password);
-    console.log("this.state.cpassword = ", this.state.cpassword);
+  // syntax sugar if time permits
+  // password.toString() === cpassword.toString() ? true : false;
+  cPassword = (password, cpassword, navigation, username) => {
+    if (
+      password.toString() === cpassword.toString() &&
+      password.toString() != ""
+    ) {
+      var user = {
+        Username: username,
+        Password: password,
+        dbid: "dhuiefgdweiwewe23sfgrttrgefeiuwgiu"
+      };
+      registerUser(user, navigation);
+    } else return false;
   };
 
   render() {
@@ -24,10 +34,10 @@ export default class App extends Component {
     return (
       <View style={{ paddingVertical: 20 }}>
         <Card>
-          <FormLabel>Email</FormLabel>
+          <FormLabel>Username</FormLabel>
           <FormInput
-            placeholder="Email address..."
-            onChangeText={email => this.setState({ email })}
+            placeholder="Username...."
+            onChangeText={username => this.setState({ username })}
           />
           <FormLabel>Password</FormLabel>
           <FormInput
@@ -47,12 +57,12 @@ export default class App extends Component {
             backgroundColor="#03A9F4"
             title="SIGN UP"
             onPress={() => {
-              auth(this.state.email, this.state.password);
-              {
-                /*onSignIn().then(() =>
-                navigation.navigate("SignedIn")
-              );*/
-              }
+              this.cPassword(
+                this.state.cpassword,
+                this.state.password,
+                navigation,
+                this.state.username
+              );
             }}
           />
           <Button

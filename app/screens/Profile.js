@@ -2,8 +2,9 @@ import React from "react";
 import { View } from "react-native";
 import { Card, Button, Text } from "react-native-elements";
 import { onSignOut } from "../auth";
+import global from "../components/Global";
 
-export default ({ navigation }) => (
+export default ({ navigation }) =>
   <View style={{ paddingVertical: 20 }}>
     <Card title="John Doe">
       <View
@@ -26,5 +27,4 @@ export default ({ navigation }) => (
         onPress={() => onSignOut().then(() => navigation.navigate("SignedOut"))}
       />
     </Card>
-  </View>
-);
+  </View>;

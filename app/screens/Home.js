@@ -9,6 +9,7 @@ import {
   Text
 } from "react-native-elements";
 import axios from "axios";
+import Global from "../components/Global";
 
 export default class App extends Component {
   constructor(props) {
@@ -32,12 +33,11 @@ export default class App extends Component {
   // public string Password { get; set; }
   postToDb = () => {
     console.log("test");
-    // axios
-    //   .post(`http://localhost:5000/api/request`, { body }, "{auth header}")
-    //   .then(res => {
-    //     this.setState({ userData: res.data });
-    //     console.log("this.state.userData = ", this.state.userData);
-    //   });
+    axios.post("http://localhost:5000/api/request", {
+      Username: user.Username,
+      Password: user.Password,
+      dbid: user.dbid
+    });
   };
 
   render() {
@@ -46,7 +46,7 @@ export default class App extends Component {
     return (
       <ScrollView style={{ flex: 1, paddingVertical: 20 }}>
         <View>
-          <Text h4>Home Page</Text>
+          <Text h4>Welcome {Global.USERNAME}</Text>
           <TextInput
             style={{ height: 40 }}
             placeholder="New Post...."
@@ -72,3 +72,5 @@ export default class App extends Component {
     );
   }
 }
+
+// Fix username not persisting after reopening the app
