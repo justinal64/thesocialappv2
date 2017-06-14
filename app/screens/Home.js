@@ -26,17 +26,11 @@ export default class App extends Component {
     });
   }
 
-  //   public string dbid {get; set;}
-  //   public string Company { get; set; }
-  //   public string Posts { get; set; }
-  // public string Username { get; set; }
-  // public string Password { get; set; }
   postToDb = () => {
     console.log("test");
     axios.post("http://localhost:5000/api/request", {
-      Username: user.Username,
-      Password: user.Password,
-      dbid: user.dbid
+      Username: Global.USERNAME,
+      Posts: this.state.post
     });
   };
 
